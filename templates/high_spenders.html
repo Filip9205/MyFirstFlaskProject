@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{%block head %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="table-responsive">
+            <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col"><h5>ID</h5></th>
+              <th scope="col"><h5>TOTAL SPENT</h5></th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for user in users %}
+            <tr>
+              <th scope="row"><p>{{ user.id }}</p></th>
+              <td><p>{{ user.average }}</p></td>
+            </tr>
+          {% endfor %}
+            </tbody>
+        </table>
+       </div>
+       <div class="container-fluid">
+           {{ render_form(form) }}
+       </div>
+{% endblock %}

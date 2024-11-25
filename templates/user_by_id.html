@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>User By ID</title>
+{% endblock %}
+
+{% block body %}
+    <div class="table-responsive">
+        {% if data %}
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col"><h5>ID</h5></th>
+                        <th scope="col"><h5>ID</h5></th>
+                        <th scope="col"><h5>Age</h5></th>
+                        <th scope="col"><h5>E-Mail</h5></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="col"><p>{{ user.id }}</p></th>
+                        <td><p>{{ user.name }}</p></td>
+                        <td><p>{{ user.age}}</p></td>
+                        <td><p>{{ user.mail}}</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        {% else %}
+            <div class="alert alert-warning" role="alert">
+                <h1>There is no record of any spending done by user with id: {{ user_id }} </h1>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

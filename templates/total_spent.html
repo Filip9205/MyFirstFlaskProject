@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Total Spent By User ID</title>
+{% endblock %}
+
+{% block body %}
+        <div class="container-fluid">
+        {% if data %}
+        </div>
+        <div class="table-responsive">
+
+            <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col"><h5>ID</h5></th>
+              <th scope="col"><h5>NAME</h5></th>
+              <th scope="col"><h5>AGE</h5></th>
+              <th scope="col"><h5>E-Mail</h5></th>
+              <th scope="col"><h5>SPENT</h5></th>
+              <th scope="col"><h5>YEAR</h5></th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for spent in user["money_spent"] %}
+            <tr>
+              <th scope="row"><p>{{ user["id"] }}</p></th>
+              <td><p>{{ user["name"] }}</p></td>
+              <td><p>{{ user["age"] }}</p></td>
+              <td><p>{{ user["mail"] }}</p></td>
+              <td><p>${{ spent }}</p></td>
+              <td>{{ user["year"] }}</td>
+            </tr>
+          {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Total Spent</th>
+                    <td colspan="5" class="text-end;">${{ user["total_money_spent"] }}</td>
+                </tr>
+            </tfoot>
+        </table>
+        {% else %}
+            <div class="alert alert-warning" role="alert">
+                <h1>There is no record of any spending done by user with id: {{ user_id }} </h1>
+            </div>
+        {% endif %}
+       </div>
+{% endblock %}
